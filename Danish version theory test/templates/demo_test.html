@@ -27,8 +27,9 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    h1 {
-      margin: 0;
+    h1 a {
+      color: white;
+      text-decoration: none;
       font-size: 1.25rem;
       font-weight: 600;
     }
@@ -37,8 +38,7 @@
       flex-grow: 1;
       overflow-y: auto;
       padding: 1rem;
-      display: flex;
-      flex-direction: column;
+      padding-bottom: 5rem; /* Ensure space for the fixed footer */
     }
 
     .message {
@@ -70,13 +70,11 @@
       background-color: #3b82f6;
       color: white;
       border-bottom-right-radius: 0;
-      /* Sharp corner for user message */
     }
 
     .assistant .message-content {
       background-color: #374151;
       border-bottom-left-radius: 0;
-      /* Sharp corner for assistant message */
     }
 
     .avatar {
@@ -94,7 +92,6 @@
 
     .user .avatar {
       order: 1;
-      /* Move the user avatar to the right */
       margin-left: 1rem;
       margin-right: 0;
       background-color: #2563eb;
@@ -111,6 +108,12 @@
       background-color: #1f2937;
       border-top: 1px solid #374151;
       padding: 0.75rem;
+      position: fixed; /* Stick footer at the bottom */
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%; /* Full width */
+      z-index: 1000; /* Make sure it's on top */
     }
 
     form {
@@ -207,7 +210,6 @@
       }
     }
 
-    /* Responsive adjustments */
     @media (min-width: 640px) {
       h1 {
         font-size: 1.5rem;
@@ -252,7 +254,7 @@
 <body>
   <header class="bg-blue-600 text-white p-4 sticky top-0 z-50">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-xl sm:text-2xl font-bold">Theory Test Prep</h1>
+      <h1><a href="/">Theory Test Prep</a></h1>
       <nav>
         <ul class="flex space-x-4 sm:space-x-6">
           <li><a href="/" class="hover:text-blue-200">Home</a></li>
@@ -265,8 +267,8 @@
 
   <footer>
     <form id="messageForm">
-      <input type="text" id="messageInput" placeholder="Type your message here..." />
-      <button type="submit" id="sendButton">Send</button>
+      <input type="text" id="messageInput" placeholder="Type your message here..." aria-label="Message input field" />
+      <button type="submit" id="sendButton" aria-label="Send message">Send</button>
     </form>
   </footer>
 
@@ -280,18 +282,8 @@
     let isLoading = false;
     let isUserNearBottom = true;
 
-    // Track if the user is near the bottom of the chat
-    messageArea.addEventListener("scroll", () => {
-      const threshold = 100; // Adjust threshold as needed
-      const position = messageArea.scrollTop + messageArea.clientHeight;
-      const height = messageArea.scrollHeight;
-      isUserNearBottom = height - position < threshold;
-    });
-
     function scrollToBottom() {
-      if (isUserNearBottom) {
-        messageArea.scrollTop = messageArea.scrollHeight;
-      }
+      messageArea.scrollTop = messageArea.scrollHeight;
     }
 
     function formatResponse(text) {
@@ -419,13 +411,11 @@
     });
 
     // Initialize with welcome message
-    addMessage("assistant", "Hi there! I'm here to help you practice for your Danish driving theory test. Whenever you're ready, just type 'Start' and we'll begin. Good luck!");
+    addMessage("assistant", "Hej! Jeg er her for at hjælpe dig med at øve dig til din dansk køreteoriprøve. Når du er klar, skal du bare skrive 'Start', så begynder vi. Held og lykke!");
+    scrollToBottom(); // Ensure initial message is at the bottom
     messageInput.disabled = false;
     sendButton.disabled = false;
     messageInput.focus();
-
-    // Ensure scroll to bottom on window resize
-    window.addEventListener("resize", scrollToBottom);
   </script>
 </body>
 
