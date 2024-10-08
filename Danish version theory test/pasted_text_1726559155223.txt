@@ -1,0 +1,71 @@
+# Privacy Policy for Danish Theory Test Prep App
+
+Last updated: [Current Date]
+
+## 1. Introduction
+
+Welcome to the Danish Theory Test Prep App ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and website (collectively, the "Service").
+
+Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the Service.
+
+## 2. Information We Collect
+
+We collect information that you provide directly to us when you:
+
+- Register for an account
+- Use our Service
+- Contact our customer support
+
+The types of data we may collect include:
+
+- Name and contact information (e.g., email address)
+- Payment information (processed securely through our payment provider)
+- Usage data (e.g., questions answered, test scores)
+- Device information (e.g., device ID, IP address)
+
+## 3. How We Use Your Information
+
+We use the information we collect to:
+
+- Provide, maintain, and improve our Service
+- Process payments and send transaction notifications
+- Respond to your comments and questions
+- Send you related information, including confirmations, updates, and security alerts
+- Monitor and analyze trends, usage, and activities in connection with our Service
+- Personalize and improve your experience
+
+## 4. Sharing of Your Information
+
+We do not sell or rent your personal information to third parties. We may share your information in the following situations:
+
+- With service providers who perform services on our behalf
+- To comply with legal obligations
+- To protect and defend our rights and property
+- With your consent or at your direction
+
+## 5. Data Retention
+
+We will retain your personal information only for as long as is necessary for the purposes set out in this privacy policy. We will retain and use your information to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our policies.
+
+## 6. Security of Your Information
+
+We use administrative, technical, and physical security measures to protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable.
+
+## 7. Your Data Protection Rights Under GDPR
+
+If you are a resident of the European Economic Area (EEA), you have certain data protection rights. We aim to take reasonable steps to allow you to correct, amend, delete, or limit the use of your personal information.
+
+If you wish to be informed what personal information we hold about you and if you want it to be removed from our systems, please contact us.
+
+## 8. Changes to This Privacy Policy
+
+We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
+
+## 9. Contact Us
+
+If you have any questions about this Privacy Policy, please contact us:
+
+- By email: [contact@danishtheorytestprep.dk]
+- By visiting this page on our website: [www.danishtheorytestprep.dk/contact]
+
+Thank you for trusting us with your personal information and for using our Service.

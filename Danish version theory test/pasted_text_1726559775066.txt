@@ -1,0 +1,77 @@
+# Terms of Service for Danish Theory Test Prep App
+
+Last updated: [Current Date]
+
+## 1. Acceptance of Terms
+
+By accessing or using the Danish Theory Test Prep App (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of the terms, you may not access the Service.
+
+## 2. Description of Service
+
+The Danish Theory Test Prep App is a mobile and web-based application designed to help users prepare for the Danish driving theory test. It provides access to practice questions, study materials, and mock tests.
+
+## 3. User Accounts and Access
+
+3.1. To access certain features of the Service, you must create an account. You are responsible for maintaining the confidentiality of your account and password.
+
+3.2. You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete.
+
+3.3. Sharing of Login Credentials: You are strictly prohibited from sharing your login credentials (username and password) with any other individual or entity. Each account is for single user use only. Any detected sharing of accounts may result in immediate termination of your access to the Service without refund.
+
+3.4. Lifetime Access: Upon payment of the one-time fee, you are granted lifetime access to the current version of the Service and any future updates we may provide. This lifetime access is subject to your compliance with these Terms of Service.
+
+## 4. Payment and Refunds
+
+4.1. The Service is provided for a one-time fee of 99 DKK.
+
+4.2. All payments are final and non-refundable, except as provided in our Passing Guarantee (see Section 5).
+
+## 5. Passing Guarantee
+
+We offer a Passing Guarantee subject to the following conditions:
+
+5.1. Eligibility: To be eligible for the guarantee, you must:
+   a) Complete at least 800 unique questions within the app.
+   b) Attempt the official Danish theory test within 30 days of completing the 800th question.
+   c) Fail the official test on your first attempt after using our app.
+
+5.2. Claim Process:
+   a) To claim your refund, you must email us at [support@danishtheorytestprep.dk] within 7 days of failing the test.
+   b) You must provide a clear photograph of your official test results showing the fail status and the date of the test.
+
+5.3. Refund: If all conditions are met and verified, we will refund the full purchase price of 99 DKK to the original payment method within 14 business days.
+
+5.4. Limitations:
+   a) This guarantee is limited to one refund per user.
+   b) We reserve the right to deny refunds in cases of suspected fraud or abuse.
+
+## 6. User Conduct
+
+You agree not to:
+
+6.1. Use the Service for any unlawful purpose or in violation of any local, state, national, or international law.
+6.2. Share your account, password, or access to the Service with any third party.
+6.3. Attempt to circumvent any security features of the Service.
+6.4. Copy, distribute, or share content from the Service without explicit written permission from Danish Theory Test Prep.
+
+## 7. Intellectual Property
+
+The Service and its original content, features, and functionality are owned by Danish Theory Test Prep and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.
+
+## 8. Termination
+
+We may terminate or suspend your account and bar access to the Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms. Violations of the account sharing prohibition may result in immediate termination of access without refund.
+
+## 9. Limitation of Liability
+
+In no event shall Danish Theory Test Prep, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the Service.
+
+## 10. Changes
+
+We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will provide notice of any significant changes by posting the new Terms on this page.
+
+## 11. Contact Us
+
+If you have any questions about these Terms, please contact us at [support@danishtheorytestprep.dk].
+
+By using the Service, you acknowledge that you have read and understood these Terms and agree to be bound by them.

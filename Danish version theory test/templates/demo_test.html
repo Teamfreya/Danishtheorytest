@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo Theory Test - Theory Test Prep</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #111827;
+      color: #e5e7eb;
+      font-size: 16px;
+    }
+
+    header {
+      background-color: #3b82f6;
+      color: white;
+      padding: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .scroll-area {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .message {
+      display: flex;
+      margin-bottom: 1rem;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    .user {
+      justify-content: flex-end;
+      /* Align user messages to the right */
+    }
+
+    .assistant {
+      justify-content: flex-start;
+      /* Align assistant messages to the left */
+    }
+
+    .message-content {
+      max-width: 85%;
+      padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    .user .message-content {
+      background-color: #3b82f6;
+      color: white;
+      border-bottom-right-radius: 0;
+      /* Sharp corner for user message */
+    }
+
+    .assistant .message-content {
+      background-color: #374151;
+      border-bottom-left-radius: 0;
+      /* Sharp corner for assistant message */
+    }
+
+    .avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1rem;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+
+    .user .avatar {
+      order: 1;
+      /* Move the user avatar to the right */
+      margin-left: 1rem;
+      margin-right: 0;
+      background-color: #2563eb;
+      color: white;
+    }
+
+    .assistant .avatar {
+      margin-right: 1rem;
+      background-color: #6b7280;
+      color: white;
+    }
+
+    footer {
+      background-color: #1f2937;
+      border-top: 1px solid #374151;
+      padding: 0.75rem;
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    input {
+      flex-grow: 1;
+      padding: 0.75rem;
+      border: 2px solid #4b5563;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background-color: #111827;
+      color: white;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+    }
+
+    button {
+      padding: 0.75rem 1rem;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-left: 0.5rem;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      margin: 0.5rem 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .thinking {
+      display: inline-flex;
+      align-items: center;
+      height: 1.5rem;
+    }
+
+    .dot {
+      width: 0.4rem;
+      height: 0.4rem;
+      background-color: #e5e7eb;
+      border-radius: 50%;
+      margin: 0 0.2rem;
+      animation: bounce 1.4s infinite ease-in-out both;
+    }
+
+    .dot:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+
+    .dot:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      80%,
+      100% {
+        transform: scale(0);
+      }
+
+      40% {
+        transform: scale(1);
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (min-width: 640px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .message-content {
+        max-width: 75%;
+        font-size: 1rem;
+      }
+
+      .avatar {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.2rem;
+        margin-right: 0.75rem;
+      }
+
+      input,
+      button {
+        font-size: 1rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .scroll-area {
+        padding: 1.5rem;
+      }
+
+      .message-content {
+        max-width: 70%;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .message-content {
+        max-width: 60%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="bg-blue-600 text-white p-4 sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl sm:text-2xl font-bold">Theory Test Prep</h1>
+      <nav>
+        <ul class="flex space-x-4 sm:space-x-6">
+          <li><a href="/" class="hover:text-blue-200">Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="scroll-area" id="messageArea"></div>
+
+  <footer>
+    <form id="messageForm">
+      <input type="text" id="messageInput" placeholder="Type your message here..." />
+      <button type="submit" id="sendButton">Send</button>
+    </form>
+  </footer>
+
+  <script>
+    const messageArea = document.getElementById("messageArea");
+    const messageForm = document.getElementById("messageForm");
+    const messageInput = document.getElementById("messageInput");
+    const sendButton = document.getElementById("sendButton");
+
+    let messages = [];
+    let isLoading = false;
+    let isUserNearBottom = true;
+
+    // Track if the user is near the bottom of the chat
+    messageArea.addEventListener("scroll", () => {
+      const threshold = 100; // Adjust threshold as needed
+      const position = messageArea.scrollTop + messageArea.clientHeight;
+      const height = messageArea.scrollHeight;
+      isUserNearBottom = height - position < threshold;
+    });
+
+    function scrollToBottom() {
+      if (isUserNearBottom) {
+        messageArea.scrollTop = messageArea.scrollHeight;
+      }
+    }
+
+    function formatResponse(text) {
+      let formattedText = text.replace(/\*\*/g, "");
+
+      formattedText = formattedText.replace(
+        /Options:([\s\S]*?)(?=\n\n|$)/,
+        (match, p1) => {
+          const options = p1
+            .trim()
+            .split("\n")
+            .filter((option) => option.trim() !== "")
+            .map((option, index) => {
+              const letter = String.fromCharCode(65 + index);
+              return `${letter}) ${option.trim().replace(/^[A-Z]\)\s*/, "")}`;
+            })
+            .join("\n");
+          return `Options:\n${options}`;
+        }
+      );
+
+      formattedText = formattedText.replace(/[E-Z]\).*\n?/g, "");
+      formattedText = formattedText.replace(
+        /Please select the correct option\(s\)\..*\n?/g,
+        ""
+      );
+      formattedText = formattedText.replace(
+        /!\[([^\]]*)\]\((.*?)\)/g,
+        '<img src="$2" alt="$1">'
+      );
+      formattedText = formattedText.replace(/\n/g, "<br>");
+
+      return formattedText;
+    }
+
+    function addMessage(role, content) {
+      const messageDiv = document.createElement("div");
+      messageDiv.className = `message ${role}`;
+      messageDiv.innerHTML = `
+          <div class="avatar">${role === "user" ? "U" : "AI"}</div>
+          <div class="message-content">${content}</div>
+        `;
+      messageArea.appendChild(messageDiv);
+      scrollToBottom(); // Ensure scrolling to the bottom after adding each message
+    }
+
+    function addThinkingAnimation() {
+      const thinkingDiv = document.createElement("div");
+      thinkingDiv.className = "message assistant";
+      thinkingDiv.innerHTML = `
+          <div class="avatar">AI</div>
+          <div class="message-content thinking">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        `;
+      messageArea.appendChild(thinkingDiv);
+      scrollToBottom();
+      return thinkingDiv;
+    }
+
+    async function sendMessageToLangbase(messages) {
+      const apiUrl = "https://api.langbase.com/beta/pipes/run";
+      const apiKey = `Bearer pipe_4AE4WJ7bqpRooMHJEskfcH17GScbrCe4kis4fgfkM5FT6d3yCmt55n3r5VcdzZkcKyPLj3X1odwRnKTs54BQLiST`;
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: apiKey,
+          },
+          body: JSON.stringify({ messages }),
+        });
+
+        const result = await response.json();
+        return result;
+      } catch (error) {
+        console.error("Error:", error);
+        throw error;
+      }
+    }
+
+    async function handleSendMessage() {
+      if (messageInput.value.trim() === "" || isLoading) return;
+
+      isLoading = true;
+      messageInput.disabled = true;
+      sendButton.disabled = true;
+
+      const userMessage = { role: "user", content: messageInput.value };
+      messages.push(userMessage);
+      addMessage("user", userMessage.content);
+      messageInput.value = "";
+
+      const thinkingAnimation = addThinkingAnimation();
+
+      try {
+        const result = await sendMessageToLangbase(messages);
+        const formattedResponse = formatResponse(result.completion);
+        const assistantMessage = {
+          role: "assistant",
+          content: formattedResponse,
+        };
+        messages.push(assistantMessage);
+        thinkingAnimation.remove();
+        addMessage("assistant", formattedResponse);
+      } catch (error) {
+        console.error("Error:", error);
+        thinkingAnimation.remove();
+        addMessage("assistant", "Sorry, there was an error processing your request.");
+      } finally {
+        isLoading = false;
+        messageInput.disabled = false;
+        sendButton.disabled = false;
+        messageInput.focus();
+        scrollToBottom(); // Ensure scroll to bottom when response is done
+      }
+    }
+
+    messageForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      handleSendMessage();
+    });
+
+    // Initialize with welcome message
+    addMessage("assistant", "Hi there! I'm here to help you practice for your Danish driving theory test. Whenever you're ready, just type 'Start' and we'll begin. Good luck!");
+    messageInput.disabled = false;
+    sendButton.disabled = false;
+    messageInput.focus();
+
+    // Ensure scroll to bottom on window resize
+    window.addEventListener("resize", scrollToBottom);
+  </script>
+</body>
+
+</html>
