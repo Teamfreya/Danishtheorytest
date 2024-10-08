@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="da" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v=6">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danish Theory Test Prep - Master Your Danish Driving Exam with AI</title>
+    <title>Dansk Teoriprøve Forberedelse - Bestå Din Teoriprøve Med AI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <script>
@@ -30,7 +30,7 @@
         @layer utilities {
             .text-shadow {
                 text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-                /* Enhances readability */
+                /* Forbedrer læsbarheden */
             }
         }
 
@@ -46,7 +46,7 @@
 
         .btn-hover:hover {
             background-color: #EAB308;
-            /* Darken on hover */
+            /* Mørkere ved hover */
         }
     </style>
 </head>
@@ -54,22 +54,22 @@
 <body class="bg-gray-50 font-sans text-gray-800">
     <header class="bg-primary text-white p-4 sticky top-0 z-50 shadow-md" x-data="{ isOpen: false }">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-shadow">Danish Theory Test Prep </h1>
+            <h1 class="text-2xl font-bold text-shadow">Dansk Teoriprøve Forberedelse</h1>
             <nav class="hidden lg:flex items-center space-x-6">
-                <a href="#home" class="hover:text-accent transition duration-300">Home</a>
-                <a href="#features" class="hover:text-accent transition duration-300">Features</a>
-                <a href="#how-it-works" class="hover:text-accent transition duration-300">How It Works</a>
-                <a href="#testimonials" class="hover:text-accent transition duration-300">Testimonials</a>
-                <a href="#pricing" class="hover:text-accent transition duration-300">Pricing</a>
+                <a href="#home" class="hover:text-accent transition duration-300">Hjem</a>
+                <a href="#features" class="hover:text-accent transition duration-300">Funktioner</a>
+                <a href="#how-it-works" class="hover:text-accent transition duration-300">Sådan fungerer det</a>
+                <a href="#testimonials" class="hover:text-accent transition duration-300">Anmeldelser</a>
+                <a href="#pricing" class="hover:text-accent transition duration-300">Priser</a>
                 <a href="/demo-test" class="hover:text-accent transition duration-300">Demo Test</a>
                 {% if current_user.is_authenticated %}
                 <a href="/theory-test" class="hover:text-accent transition duration-300">Start Test</a>
-                <a href="/logout" class="hover:text-accent transition duration-300">Log Out</a>
+                <a href="/logout" class="hover:text-accent transition duration-300">Log Ud</a>
                 {% else %}
-                <a href="/login" class="hover:text-accent transition duration-300">Log In</a>
+                <a href="/login" class="hover:text-accent transition duration-300">Log Ind</a>
                 <a href="/signup"
-                    class="bg-accent text-primary font-semibold px-4 py-2 rounded-full hover:bg-yellow-400 transition duration-300">Sign
-                    Up</a>
+                    class="bg-accent text-primary font-semibold px-4 py-2 rounded-full hover:bg-yellow-400 transition duration-300">Tilmeld
+                    Dig</a>
                 {% endif %}
             </nav>
             <button id="menu-toggle" class="lg:hidden text-white focus:outline-none">
@@ -83,20 +83,20 @@
         </div>
         <div id="mobile-menu" class="lg:hidden hidden mt-4">
             <nav class="flex flex-col space-y-2">
-                <a href="#home" class="block py-2 hover:bg-secondary transition duration-300">Home</a>
-                <a href="#features" class="block py-2 hover:bg-secondary transition duration-300">Features</a>
-                <a href="#how-it-works" class="block py-2 hover:bg-secondary transition duration-300">How It Works</a>
-                <a href="#testimonials" class="block py-2 hover:bg-secondary transition duration-300">Testimonials</a>
-                <a href="#pricing" class="block py-2 hover:bg-secondary transition duration-300">Pricing</a>
+                <a href="#home" class="block py-2 hover:bg-secondary transition duration-300">Hjem</a>
+                <a href="#features" class="block py-2 hover:bg-secondary transition duration-300">Funktioner</a>
+                <a href="#how-it-works" class="block py-2 hover:bg-secondary transition duration-300">Sådan fungerer det</a>
+                <a href="#testimonials" class="block py-2 hover:bg-secondary transition duration-300">Anmeldelser</a>
+                <a href="#pricing" class="block py-2 hover:bg-secondary transition duration-300">Priser</a>
                 <a href="/demo-test" class="block py-2 hover:bg-secondary transition duration-300">Demo Test</a>
                 {% if current_user.is_authenticated %}
                 <a href="/theory-test" class="block py-2 hover:bg-secondary transition duration-300">Start Test</a>
-                <a href="/logout" class="block py-2 hover:bg-secondary transition duration-300">Log Out</a>
+                <a href="/logout" class="block py-2 hover:bg-secondary transition duration-300">Log Ud</a>
                 {% else %}
-                <a href="/login" class="block py-2 hover:bg-secondary transition duration-300">Log In</a>
+                <a href="/login" class="block py-2 hover:bg-secondary transition duration-300">Log Ind</a>
                 <a href="/signup"
-                    class="block py-2 bg-accent text-primary font-semibold hover:bg-yellow-400 transition duration-300">Sign
-                    Up</a>
+                    class="block py-2 bg-accent text-primary font-semibold hover:bg-yellow-400 transition duration-300">Tilmeld
+                    Dig</a>
                 {% endif %}
             </nav>
         </div>
@@ -107,121 +107,120 @@
             class="text-center py-16 bg-gradient-to-r from-primary to-secondary text-white rounded-2xl shadow-xl overflow-hidden bg-gradient">
             <div class="flex flex-col lg:flex-row items-center justify-between">
                 <div class="lg:w-1/2 text-left px-8">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight text-shadow">🇩🇰 Ace Your Danish
-                        Driving Theory Test with AI 🚗</h2>
-                    <p class="text-xl mb-8 opacity-90">Prepare for your Danish driving theory test like never before
-                        with our cutting-edge AI-driven platform. Engage in real-time with an AI assistant that helps
-                        you practice and master the official exam content.</p>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight text-shadow">🇩🇰 Bestå Din Dansk
+                        Teoriprøve Med AI 🚗</h2>
+                    <p class="text-xl mb-8 opacity-90">Forbered dig på din danske teoriprøve som aldrig før
+                        med vores avancerede AI-platform. Engagér dig i realtid med en AI-assistent, der hjælper dig
+                        med at øve og mestre den officielle eksamensindhold.</p>
 
                     <!-- Changed button to Demo Test -->
                     <a href="/demo-test"
                         class="bg-accent text-primary inline-block py-2 px-4 rounded-full text-2xl font-bold mb-8 shadow-lg transform hover:scale-105 transition duration-300">
-                        Start Free AI Test!
+                        Start Gratis AI Test!
                     </a>
-                    <p class="text-lg mb-4 font-semibold">✅ 99kr One time fee</p>
-                    <p class="text-lg mb-4 font-semibold">✅ Real-time interactive testing with AI</p>
-                    <p class="text-lg mb-8 font-semibold">✅ Access to 2000+ official questions</p>
+                    <p class="text-lg mb-4 font-semibold">✅ 99kr Éngangsbetaling</p>
+                    <p class="text-lg mb-4 font-semibold">✅ Realtids interaktiv test med AI</p>
+                    <p class="text-lg mb-8 font-semibold">✅ Adgang til 2000+ officielle spørgsmål</p>
                     {% if current_user.is_authenticated %}
                     <a href="/theory-test" id="start-test-button"
                         class="bg-white text-primary hover:bg-gray-100 font-bold py-3 px-8 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg inline-block">
-                        Start Your Interactive AI Test Now
+                        Start Din Interaktive AI Test Nu
                     </a>
                     {% else %}
                     <a href="/signup"
                         class="bg-accent btn-hover font-bold py-3 px-8 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg inline-block">
-                        Sign Up to Start with AI
+                        Tilmeld Dig For At Starte Med AI
                     </a>
                     {% endif %}
                 </div>
                 <div class="lg:w-1/2 mt-12 lg:mt-0 px-8">
-                    <img src="https://i.ytimg.com/vi/l86XF1HBxTk/maxresdefault.jpg" alt="Driving illustration"
+                    <img src="https://i.ytimg.com/vi/l86XF1HBxTk/maxresdefault.jpg" alt="Kørsel illustration"
                         class="w-full max-w-md mx-auto rounded-lg shadow-2xl transform hover:scale-105 transition duration-500 ease-in-out">
                 </div>
             </div>
         </section>
 
         <section id="features" class="py-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800">Key Features of Our AI-Powered
-                Driving Test</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800">Nøglefunktioner af Vores AI-drevne
+                Teoriprøve</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <h3 class="text-xl font-semibold mb-4 text-primary">AI-Powered Testing Experience</h3>
-                    <p class="text-gray-600">Chat with our AI assistant to take interactive, real-time practice tests
-                        tailored to your progress and performance.</p>
+                    <h3 class="text-xl font-semibold mb-4 text-primary">AI-drevet Testoplevelse</h3>
+                    <p class="text-gray-600">Chat med vores AI-assistent for at tage interaktive, realtidsprøver
+                        tilpasset dine fremskridt og præstationer.</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <h3 class="text-xl font-semibold mb-4 text-primary">Up-to-date 2024 Questions</h3>
-                    <p class="text-gray-600">Access a comprehensive database of questions, regularly updated to match
-                        the latest Danish driving theory test.</p>
+                    <h3 class="text-xl font-semibold mb-4 text-primary">Opdaterede Spørgsmål fra 2024</h3>
+                    <p class="text-gray-600">Få adgang til en omfattende database af spørgsmål, regelmæssigt opdateret for at matche
+                        den seneste danske teoriprøve.</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <h3 class="text-xl font-semibold mb-4 text-primary">Performance Tracking</h3>
-                    <p class="text-gray-600">Monitor your progress and identify areas for improvement with our detailed
-                        performance analytics.</p>
+                    <h3 class="text-xl font-semibold mb-4 text-primary">Præstationssporing</h3>
+                    <p class="text-gray-600">Overvåg dine fremskridt og identificer områder, der skal forbedres med vores detaljerede
+                        præstationsanalyse.</p>
                 </div>
             </div>
         </section>
 
         <section id="how-it-works" class="py-16 bg-gray-100 rounded-2xl">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800">How Our AI Driving Test Works
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800">Sådan Fungerer Vores AI Teoriprøve
             </h2>
             <div class="max-w-3xl mx-auto">
                 <ol class="space-y-6">
                     <li class="flex items-center space-x-4">
                         <span
                             class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">1</span>
-                        <span class="text-lg"><span class="font-semibold text-primary">Sign up:</span> Create your
-                            account with a one-time payment of 99kr.</span>
+                        <span class="text-lg"><span class="font-semibold text-primary">Tilmeld dig:</span> Opret din
+                            konto med en engangsbetaling på 99kr.</span>
                     </li>
                     <li class="flex items-center space-x-4">
                         <span
                             class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">2</span>
-                        <span class="text-lg"><span class="font-semibold text-primary">Engage with AI:</span> Talk to
-                            our AI assistant, which will guide you through real-time interactive practice tests.</span>
+                        <span class="text-lg"><span class="font-semibold text-primary">Engagér dig med AI:</span> Tal med
+                            vores AI-assistent, som guider dig gennem interaktive realtidsprøver.</span>
                     </li>
                     <li class="flex items-center space-x-4">
                         <span
                             class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">3</span>
-                        <span class="text-lg"><span class="font-semibold text-primary">Practice:</span> Take unlimited
-                            practice tests to improve your knowledge and confidence.</span>
+                        <span class="text-lg"><span class="font-semibold text-primary">Øv dig:</span> Tag ubegrænsede
+                            øveprøver for at forbedre din viden og selvtillid.</span>
                     </li>
                     <li class="flex items-center space-x-4">
                         <span
                             class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">4</span>
-                        <span class="text-lg"><span class="font-semibold text-primary">Track progress:</span> Monitor
-                            your performance and focus on areas that need improvement.</span>
+                        <span class="text-lg"><span class="font-semibold text-primary">Spor fremskridt:</span> Overvåg
+                            dine præstationer og fokusér på områder, der har brug for forbedring.</span>
                     </li>
                     <li class="flex items-center space-x-4">
                         <span
                             class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">5</span>
-                        <span class="text-lg"><span class="font-semibold text-primary">Pass your test:</span> Feel
-                            confident and prepared when you take your official Danish driving theory test.</span>
+                        <span class="text-lg"><span class="font-semibold text-primary">Bestå din prøve:</span> Føl dig
+                            tryg og klar, når du tager din officielle danske teoriprøve.</span>
                     </li>
                 </ol>
             </div>
         </section>
 
         <section id="testimonials" class="py-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800">What Our Users Say</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800">Hvad Vores Brugere Siger</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <p class="mb-6 text-gray-600 italic">"The AI interaction was a game-changer! It felt like I was
-                        talking to a real instructor, and the instant feedback helped me improve quickly."</p>
+                    <p class="mb-6 text-gray-600 italic">"AI-interaktionen var en game-changer! Det føltes som om jeg talte
+                        med en rigtig instruktør, og den øjeblikkelige feedback hjalp mig hurtigt med at forbedre mig."</p>
                     <p class="font-semibold text-primary">- Maria J.</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <p class="mb-6 text-gray-600 italic">"Having the AI explain my mistakes made learning much easier. I
-                        passed my test on the first try!"</p>
+                    <p class="mb-6 text-gray-600 italic">"At få AI til at forklare mine fejl gjorde det meget nemmere at lære. Jeg
+                        bestod min prøve i første forsøg!"</p>
                     <p class="font-semibold text-primary">- Thomas K.</p>
                 </div>
             </div>
         </section>
 
         <section id="pricing" class="py-16 bg-gray-100 rounded-2xl">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800">Simple Pricing for Advanced AI
-                Learning</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800">Enkel Prissætning for Avanceret AI Læring</h2>
             <div class="max-w-md mx-auto bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition duration-300">
-                <h3 class="text-2xl font-bold mb-4 text-primary">One-Time Payment</h3>
+                <h3 class="text-2xl font-bold mb-4 text-primary">Éngangsbetaling</h3>
                 <p class="text-5xl font-bold mb-6 text-gray-800">99kr</p>
                 <ul class="mb-8 space-y-3">
                     <li class="flex items-center">
@@ -230,7 +229,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
                             </path>
                         </svg>
-                        Real-time AI-guided practice tests
+                        Realtids AI-styrede øveprøver
                     </li>
                     <li class="flex items-center">
                         <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -238,7 +237,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
                             </path>
                         </svg>
-                        Unlimited practice sessions
+                        Ubegrænsede øve-sessioner
                     </li>
                     <li class="flex items-center">
                         <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -246,7 +245,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
                             </path>
                         </svg>
-                        Access to 2000 up-to-date questions
+                        Adgang til 2000 opdaterede spørgsmål
                     </li>
                     <li class="flex items-center">
                         <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -254,12 +253,12 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
                             </path>
                         </svg>
-                        Lifetime access
+                        Livstidsadgang
                     </li>
                 </ul>
                 <a href="/signup"
                     class="block w-full bg-primary hover:bg-secondary text-white font-bold py-3 px-6 rounded-full text-center transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
-                    Get Started Now
+                    Kom I Gang Nu
                 </a>
             </div>
         </section>
@@ -267,14 +266,12 @@
 
     <footer class="bg-gray-800 text-white py-12 mt-16">
         <div class="container mx-auto text-center">
-            <p class="mb-4">&copy; 2024 Theory Test Prep. All rights reserved.</p>
+            <p class="mb-4">&copy; 2024 Teoriprøve Forberedelse. Alle rettigheder forbeholdes.</p>
             <div class="flex justify-center space-x-4">
-                <a href="/privacy-policy" class="text-blue-300 hover:text-blue-100 transition duration-300">Privacy
-                    Policy</a>
-                <a href="/terms-of-service" class="text-blue-300 hover:text-blue-100 transition duration-300">Terms of
-                    Service</a>
+                <a href="/privacy-policy" class="text-blue-300 hover:text-blue-100 transition duration-300">Privatlivspolitik</a>
+                <a href="/terms-of-service" class="text-blue-300 hover:text-blue-100 transition duration-300">Servicevilkår</a>
                 <a href="mailto:support@lektio.io"
-                    class="text-blue-300 hover:text-blue-100 transition duration-300">Contact Us</a>
+                    class="text-blue-300 hover:text-blue-100 transition duration-300">Kontakt Os</a>
             </div>
         </div>
     </footer>
