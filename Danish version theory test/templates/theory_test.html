@@ -1,7 +1,3 @@
-Code
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,8 +27,9 @@ Code
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    h1 {
-      margin: 0;
+    h1 a {
+      color: white;
+      text-decoration: none;
       font-size: 1.25rem;
       font-weight: 600;
     }
@@ -41,8 +38,7 @@ Code
       flex-grow: 1;
       overflow-y: auto;
       padding: 1rem;
-      display: flex;
-      flex-direction: column;
+      padding-bottom: 5rem; /* Ensure space for the fixed footer */
     }
 
     .message {
@@ -74,13 +70,11 @@ Code
       background-color: #3b82f6;
       color: white;
       border-bottom-right-radius: 0;
-      /* Sharp corner for user message */
     }
 
     .assistant .message-content {
       background-color: #374151;
       border-bottom-left-radius: 0;
-      /* Sharp corner for assistant message */
     }
 
     .avatar {
@@ -98,7 +92,6 @@ Code
 
     .user .avatar {
       order: 1;
-      /* Move the user avatar to the right */
       margin-left: 1rem;
       margin-right: 0;
       background-color: #2563eb;
@@ -115,6 +108,12 @@ Code
       background-color: #1f2937;
       border-top: 1px solid #374151;
       padding: 0.75rem;
+      position: fixed; /* Stick footer at the bottom */
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%; /* Full width */
+      z-index: 1000; /* Make sure it's on top */
     }
 
     form {
@@ -211,7 +210,6 @@ Code
       }
     }
 
-    /* Responsive adjustments */
     @media (min-width: 640px) {
       h1 {
         font-size: 1.5rem;
@@ -256,11 +254,10 @@ Code
 <body>
   <header class="bg-blue-600 text-white p-4 sticky top-0 z-50">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-xl sm:text-2xl font-bold">Theory Test Prep</h1>
+      <h1><a href="/">Theory Test Prep</a></h1>
       <nav>
         <ul class="flex space-x-4 sm:space-x-6">
           <li><a href="/" class="hover:text-blue-200">Home</a></li>
-          <li><a href="/logout" class="hover:text-blue-200">Log Out</a></li>
         </ul>
       </nav>
     </div>
@@ -270,8 +267,8 @@ Code
 
   <footer>
     <form id="messageForm">
-      <input type="text" id="messageInput" placeholder="Type your message here..." />
-      <button type="submit" id="sendButton">Send</button>
+      <input type="text" id="messageInput" placeholder="Type your message here..." aria-label="Message input field" />
+      <button type="submit" id="sendButton" aria-label="Send message">Send</button>
     </form>
   </footer>
 
@@ -283,6 +280,11 @@ Code
 
     let messages = [];
     let isLoading = false;
+    let isUserNearBottom = true;
+
+    function scrollToBottom() {
+      messageArea.scrollTop = messageArea.scrollHeight;
+    }
 
     function formatResponse(text) {
       let formattedText = text.replace(/\*\*/g, "");
@@ -344,13 +346,9 @@ Code
       return thinkingDiv;
     }
 
-    function scrollToBottom() {
-      messageArea.scrollTop = messageArea.scrollHeight; // Scrolls the chat area to the bottom
-    }
-
     async function sendMessageToLangbase(messages) {
       const apiUrl = "https://api.langbase.com/beta/pipes/run";
-      const apiKey = `Bearer pipe_48BNbNX9NVqkSTSWozAbQqhR4W8cxVHwwKerKDTP4v31XpDeGerAjdHjPw92FhTqhYpMigqE3gwNvX2QxRu2t4Gj`;
+      const apiKey = `Bearer pipe_4o8UpZ9qcNwrrZ6QWerK2PsBD8p4VA1GsTQ8vGVRwJ3DW7p9CJNAr9tXAF9XVxqajY5A2CbjXrJBU4LdfeMPiHmK`;
 
       try {
         const response = await fetch(apiUrl, {
@@ -359,7 +357,7 @@ Code
             "Content-Type": "application/json",
             Authorization: apiKey,
           },
-          body: JSON.stringify({messages}),
+          body: JSON.stringify({ messages }),
         });
 
         const result = await response.json();
@@ -377,7 +375,7 @@ Code
       messageInput.disabled = true;
       sendButton.disabled = true;
 
-      const userMessage = {role: "user", content: messageInput.value};
+      const userMessage = { role: "user", content: messageInput.value };
       messages.push(userMessage);
       addMessage("user", userMessage.content);
       messageInput.value = "";
@@ -397,10 +395,7 @@ Code
       } catch (error) {
         console.error("Error:", error);
         thinkingAnimation.remove();
-        addMessage(
-          "assistant",
-          "Sorry, there was an error processing your request."
-        );
+        addMessage("assistant", "Sorry, there was an error processing your request.");
       } finally {
         isLoading = false;
         messageInput.disabled = false;
@@ -416,13 +411,11 @@ Code
     });
 
     // Initialize with welcome message
-    addMessage("assistant", "Hi there! I'm here to help you practice for your Danish driving theory test. Whenever you're ready, just type 'Start' and we'll begin. Good luck!");
+    addMessage("assistant", "Hej! Jeg er her for at hjælpe dig med at øve dig til din dansk køreteoriprøve. Når du er klar, skal du bare skrive 'Start', så begynder vi. Held og lykke!");
+    scrollToBottom(); // Ensure initial message is at the bottom
     messageInput.disabled = false;
     sendButton.disabled = false;
     messageInput.focus();
-
-    // Ensure scroll to bottom on window resize
-    window.addEventListener("resize", scrollToBottom);
   </script>
 </body>
 
