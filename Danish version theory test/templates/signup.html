@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Your Account - Theory Test Prep</title>
+    <title>Opret Din Konto - Theory Test Prep</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <script src="https://js.stripe.com/v3/"></script>
@@ -16,8 +16,8 @@
             <h1 class="text-2xl font-bold">Theory Test Prep</h1>
             <nav>
                 <ul class="flex space-x-6">
-                    <li><a href="/" class="hover:text-blue-200">Home</a></li>
-                    <li><a href="/login" class="hover:text-blue-200">Log In</a></li>
+                    <li><a href="/" class="hover:text-blue-200">Hjem</a></li>
+                    <li><a href="/login" class="hover:text-blue-200">Log ind</a></li>
                 </ul>
             </nav>
         </div>
@@ -28,7 +28,7 @@
             <div class="flex flex-col lg:flex-row">
                 <!-- Sign Up Form Section -->
                 <div class="w-full lg:w-1/2 p-8">
-                    <h2 class="text-3xl font-bold mb-6">Create Your Account</h2>
+                    <h2 class="text-3xl font-bold mb-6">Opret Din Konto</h2>
                     {% with messages = get_flashed_messages(with_categories=true) %}
                     {% if messages %}
                     {% for category, message in messages %}
@@ -42,44 +42,41 @@
                     <form id="signup-form">
                         <div class="mb-4 flex flex-col md:flex-row md:space-x-4">
                             <div class="w-full md:w-1/2 mb-4 md:mb-0">
-                                <label for="first_name" class="block text-gray-700 text-sm font-bold mb-2">First
-                                    Name</label>
+                                <label for="first_name" class="block text-gray-700 text-sm font-bold mb-2">Fornavn</label>
                                 <input type="text" id="first_name" name="first_name" required
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             </div>
                             <div class="w-full md:w-1/2">
-                                <label for="last_name" class="block text-gray-700 text-sm font-bold mb-2">Last
-                                    Name</label>
+                                <label for="last_name" class="block text-gray-700 text-sm font-bold mb-2">Efternavn</label>
                                 <input type="text" id="last_name" name="last_name" required
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             </div>
                         </div>
                         <div class="mb-4">
-                            <label for="dob" class="block text-gray-700 text-sm font-bold mb-2">Date of Birth</label>
+                            <label for="dob" class="block text-gray-700 text-sm font-bold mb-2">Fødselsdato</label>
                             <input type="date" id="dob" name="dob" required
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                         </div>
                         <div class="mb-4">
                             <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
-                            <input type="email" id="email" name="email" placeholder="you@example.com" required
+                            <input type="email" id="email" name="email" placeholder="du@eksempel.com" required
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                         </div>
                         <div class="mb-4">
-                            <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                            <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Adgangskode</label>
                             <input type="password" id="password" name="password" required
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
                         </div>
                         <div class="mb-6">
-                            <label for="confirm_password" class="block text-gray-700 text-sm font-bold mb-2">Confirm
-                                Password</label>
+                            <label for="confirm_password" class="block text-gray-700 text-sm font-bold mb-2">Bekræft Adgangskode</label>
                             <input type="password" id="confirm_password" name="confirm_password" required
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
                         </div>
                         <div class="mb-6 flex items-center">
                             <input type="checkbox" id="terms" name="terms" required class="mr-2">
-                            <label for="terms" class="text-sm">I agree to the <a href="/terms-of-service"
-                                    class="text-blue-500">Terms of Service</a> and <a href="/privacy-policy"
-                                    class="text-blue-500">Privacy Policy</a></label>
+                            <label for="terms" class="text-sm">Jeg accepterer <a href="/terms-of-service"
+                                    class="text-blue-500">Vilkår og Betingelser</a> samt <a href="/privacy-policy"
+                                    class="text-blue-500">Privatlivspolitik</a></label>
                         </div>
                         <div id="payment-element" class="mb-6">
                             <!-- Stripe Payment Element will be inserted here -->
@@ -87,18 +84,18 @@
                         <div id="payment-message" class="hidden mb-4 p-4 rounded-lg bg-red-100 text-red-700"></div>
                         <button id="submit-button" type="submit"
                             class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                            Create Account and Pay
+                            Opret Konto og Betal
                         </button>
                     </form>
                     <div class="mt-4 text-center">
                         <a href="/login" class="text-sm text-blue-500 hover:text-blue-800">
-                            Already have an account? Log in
+                            Har du allerede en konto? Log ind
                         </a>
                     </div>
                 </div>
                 <!-- Why Sign Up Section -->
                 <div class="w-full lg:w-1/2 bg-gray-50 p-8">
-                    <h2 class="text-3xl font-bold mb-6">Why Sign Up?</h2>
+                    <h2 class="text-3xl font-bold mb-6">Hvorfor Oprette en Konto?</h2>
                     <ul class="space-y-4">
                         <li class="flex items-start">
                             <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor"
@@ -107,9 +104,8 @@
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
                             <div>
-                                <strong class="font-semibold">Comprehensive Theory Test Preparation</strong>
-                                <p class="text-gray-600">Access to 1260 up-to-date questions covering all aspects of the
-                                    Danish driving theory test.</p>
+                                <strong class="font-semibold">Omfattende Forberedelse til Teoriprøven</strong>
+                                <p class="text-gray-600">Adgang til 1260 opdaterede spørgsmål, der dækker alle aspekter af den danske teoriprøve.</p>
                             </div>
                         </li>
                         <li class="flex items-start">
@@ -119,9 +115,8 @@
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
                             <div>
-                                <strong class="font-semibold">Boost Your Confidence</strong>
-                                <p class="text-gray-600">Practice in a format identical to the actual test, building
-                                    your confidence for exam day.</p>
+                                <strong class="font-semibold">Styrk Din Selvtillid</strong>
+                                <p class="text-gray-600">Øv dig i et format, der er identisk med den rigtige prøve, og styrk din selvtillid til eksamensdagen.</p>
                             </div>
                         </li>
                         <li class="flex items-start">
@@ -131,16 +126,15 @@
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
                             <div>
-                                <strong class="font-semibold">Pass on Your First Try</strong>
-                                <p class="text-gray-600">Our comprehensive preparation helps you ace the exam on your
-                                    first attempt.</p>
+                                <strong class="font-semibold">Bestå i Første Forsøg</strong>
+                                <p class="text-gray-600">Vores omfattende forberedelse hjælper dig med at bestå eksamen ved første forsøg.</p>
                             </div>
                         </li>
                     </ul>
                     <div class="mt-8 bg-blue-50 p-4 rounded-lg">
-                        <h3 class="text-xl font-semibold mb-2">Unbeatable Value</h3>
-                        <p class="text-blue-700">One-time fee of only 99kr (Danish Kroner)</p>
-                        <p class="text-blue-700">Passing guarantee or your money back!</p>
+                        <h3 class="text-xl font-semibold mb-2">Uovertruffen Værdi</h3>
+                        <p class="text-blue-700">Engangsbetaling på kun 99kr</p>
+                        <p class="text-blue-700">Beståelsesgaranti eller pengene tilbage!</p>
                     </div>
                 </div>
             </div>
@@ -149,11 +143,11 @@
 
     <footer class="bg-gray-800 text-white mt-16 py-8">
         <div class="container mx-auto text-center">
-            <p>&copy; 2024 Theory Test Prep. All rights reserved.</p>
+            <p>&copy; 2024 Theory Test Prep. Alle rettigheder forbeholdes.</p>
             <div class="mt-4">
-                <a href="/privacy-policy" class="text-blue-300 hover:text-blue-100 mx-2">Privacy Policy</a>
-                <a href="/terms-of-service" class="text-blue-300 hover:text-blue-100 mx-2">Terms of Service</a>
-                <a href="mailto:support@lektio.io" class="text-blue-300 hover:text-blue-100 mx-2">Contact Us</a>
+                <a href="/privacy-policy" class="text-blue-300 hover:text-blue-100 mx-2">Privatlivspolitik</a>
+                <a href="/terms-of-service" class="text-blue-300 hover:text-blue-100 mx-2">Vilkår og Betingelser</a>
+                <a href="mailto:support@lektio.io" class="text-blue-300 hover:text-blue-100 mx-2">Kontakt Os</a>
             </div>
         </div>
     </footer>
@@ -221,7 +215,7 @@
                 }
             } catch (error) {
                 console.error('Signup or payment error:', error);
-                showMessage(error.message || "Signup or payment failed. Please try again.");
+                showMessage(error.message || "Tilmelding eller betaling mislykkedes. Prøv venligst igen.");
                 setLoading(false);
             }
         });
@@ -232,12 +226,12 @@
             const terms = document.getElementById('terms').checked;
 
             if (password !== confirmPassword) {
-                showMessage("Passwords do not match.");
+                showMessage("Adgangskoderne stemmer ikke overens.");
                 return false;
             }
 
             if (!terms) {
-                showMessage("Please agree to the Terms of Service and Privacy Policy.");
+                showMessage("Accepter venligst Vilkår og Betingelser samt Privatlivspolitik.");
                 return false;
             }
 
@@ -258,10 +252,10 @@
         function setLoading(isLoading) {
             if (isLoading) {
                 submitButton.disabled = true;
-                submitButton.textContent = "Processing...";
+                submitButton.textContent = "Behandler...";
             } else {
                 submitButton.disabled = false;
-                submitButton.textContent = "Create Account and Pay";
+                submitButton.textContent = "Opret Konto og Betal";
             }
         }
     </script>
